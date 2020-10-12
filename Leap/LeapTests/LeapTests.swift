@@ -9,6 +9,7 @@ import XCTest
 @testable import Leap
 
 class LeapTests: XCTestCase {
+    var testYear: Year!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,27 +32,57 @@ class LeapTests: XCTestCase {
     }
     
     func testVanillaLeapYear() {
-        let year = Year(calendarYear:1996)
-        XCTAssertTrue(year.isLeapYear)
+        // 1. given
+        let year = 1996
+        
+        // 2. when
+        testYear = Year(calendarYear:year)
+        
+        // 3. then
+        XCTAssertTrue(testYear.isLeapYear)
     }
     
     func testAnyOldYear() {
-        let year = Year(calendarYear: 1997)
-        XCTAssertTrue(!year.isLeapYear)
+        // 1. given
+        let year = 1997
+        
+        // 2. when
+        testYear = Year(calendarYear:year)
+        
+        // 3. then
+        XCTAssertTrue(!testYear.isLeapYear)
     }
     
     func testCentury() {
-        let year = Year(calendarYear: 1900)
-        XCTAssertTrue(!year.isLeapYear)
+        // 1. given
+        let year = 1900
+        
+        // 2. when
+        testYear = Year(calendarYear:year)
+        
+        // 3. then
+        XCTAssertTrue(!testYear.isLeapYear)
     }
     
     func testExceptionalCentury() {
-        let year = Year(calendarYear: 2400)
-        XCTAssertTrue(year.isLeapYear)
+        // 1. given
+        let year = 2400
+        
+        // 2. when
+        testYear = Year(calendarYear:year)
+        
+        // 3. then
+        XCTAssertTrue(testYear.isLeapYear)
     }
     
     func testWrongCase() {
-        let year = Year(calendarYear: 2400)
-        XCTAssertTrue(!year.isLeapYear)
+        // 1. given
+        let year = 2400
+        
+        // 2. when
+        testYear = Year(calendarYear:year)
+        
+        // 3. then
+        XCTAssertTrue(!testYear.isLeapYear)
     }
 }
